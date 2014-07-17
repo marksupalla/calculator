@@ -46,6 +46,21 @@ Calc.mean = function(nums){
   return avg;
 };
 
+Calc.stdev = function(digits){
+  var mean = Calc.mean(digits);
+  var hArray = [];
+
+  for(var i = 0; i < (digits.length); i++){
+    var h = 0;
+    h = (digits[i] - mean) * (digits[i] - mean);
+    hArray.push(h);
+  }
+
+  var m2 = Calc.mean(hArray);
+  var dev = Math.sqrt(m2);
+  return dev;
+};
+
 module.exports = Calc;
 
 
